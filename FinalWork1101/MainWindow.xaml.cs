@@ -39,13 +39,13 @@ namespace FinalWork1101
         {
             var filteredProducts = _products.AsEnumerable();
 
-            // Фильтр по производителю
+            
             if (ManufacturerComboBox.SelectedItem is string selectedManufacturer && selectedManufacturer != "Все производители")
             {
                 filteredProducts = filteredProducts.Where(p => p.ProductManufacturer == selectedManufacturer);
             }
 
-            // Фильтр по цене
+            
             if (decimal.TryParse(MinPriceTextBox.Text, out var minPrice))
             {
                 filteredProducts = filteredProducts.Where(p => p.ProductCost >= minPrice);
@@ -56,14 +56,14 @@ namespace FinalWork1101
                 filteredProducts = filteredProducts.Where(p => p.ProductCost <= maxPrice);
             }
 
-            // Поиск по названию
+        
             var searchQuery = SearchTextBox.Text?.ToLower();
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 filteredProducts = filteredProducts.Where(p => p.ProductName.ToLower().Contains(searchQuery));
             }
 
-            // Сортировка
+            
             if (SortComboBox.SelectedItem is ComboBoxItem selectedSort)
             {
                 if (selectedSort.Content.ToString() == "Цена (по возрастанию)")
@@ -76,10 +76,10 @@ namespace FinalWork1101
                 }
             }
 
-            // Обновить данные в таблице
+            
             ProductsDataGrid.ItemsSource = filteredProducts.ToList();
 
-            // Обновить счетчик
+        
             CountTextBlock.Text = $"{filteredProducts.Count()} из {_products.Count}";
         }
 
