@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalWork1101"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1620"  WindowStartupLocation="CenterScreen">
+        Title="Ароматный мир" Height="800" Width="1620"  WindowStartupLocation="CenterScreen" Icon="Image/icon.ico">
 
     <Grid>
         <Grid.RowDefinitions>
